@@ -2,17 +2,17 @@ version: '3'
 
 services:
   app:
-    container_name: Adopet
+    container_name: Adopet-challenge
     build:
       context: .
       dockerfile: Dockerfile
     volumes:
       - ./:/usr/src/app
     environment:
-      - PORT=3000
+      - PORT=${PORT}
       - DATABASE_URL=postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}
     ports:
-      - 3000:3000
+      - ${PORT}:${PORT}
 
   postgres:
     container_name: postgres
