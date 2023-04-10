@@ -31,35 +31,35 @@ O desenvolvimento do projeto utilizou a metodologia ágil de desenvolvimento e a
 
 1. Clone o repositório para sua máquina local:
 
-```bash
-git clone https://github.com/camilapessoa/adopet-challenge
-```
+   ```bash
+   git clone https://github.com/camilapessoa/adopet-challenge
+   ```
 
 2. Instale as dependências do projeto:
 
-```bash
-npm install
-```
+   ```bash
+   npm install
+   ```
 
 3. Configure o arquivo .env com as informações do banco de dados:
 
-```txt
-DB_HOST=localhost
-DB_USER=usuario
-DB_PASSWORD=senha
-DB_NAME=nome-do-banco
-DB_PORT=5432
-JWT_SECRET=chave-secreta
-```
+   ```txt
+   DB_HOST=localhost
+   DB_USER=usuario
+   DB_PASSWORD=senha
+   DB_NAME=nome-do-banco
+   DB_PORT=5432
+   JWT_SECRET=chave-secreta
+   ```
 
 4. Execute as migrations do banco de dados:
 
-```bash
-npx sequelize-cli db:migrate
-```
+   ```bash
+   npx sequelize-cli db:migrate
+   ```
 
 5. Execute o servidor:
 
-```bash
-npm start
-```
+   ```bash
+   npm start
+   ```
