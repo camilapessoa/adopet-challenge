@@ -1,5 +1,5 @@
-function sayHello(name = "") {
-  return `Hello ${name || "World"}!`;
-}
+// function sayHello(name = "") {
+//   return `Hello ${name || "World"}!`;
+// }
 
-export default sayHello;
+// export default sayHello;
