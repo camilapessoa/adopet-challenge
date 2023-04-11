@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "description": "adocao de animais",
   "main": "src/index.js",
-  "type": "module",
   "scripts": {
     "start": "node src/index.js",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
@@ -27,6 +26,9 @@
     "jsonwebtoken": "^9.0.0"
   },
   "devDependencies": {
-    "jest": "^29.5.0"
+    "jest": "^29.5.0",
+    "pg": "^8.10.0",
+    "sequelize": "^6.31.0",
+    "sequelize-cli": "^6.6.0"
   }
 }
