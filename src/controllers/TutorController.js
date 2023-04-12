@@ -1,7 +1,27 @@
 const Services = require("../services/Services");
 const tutorServices = new Services("Tutor");
+const autenticarUsuario = require('../utils/autenticarUsuario');
 
 class TutorController {
+  
+  static async autenticar(req, res) {
+    const { email, senha } = req.body;
+    try {
+      const tutor = await tutorServices.pegaUmRegistro({ email: email });
+      if (!tutor) {
+        return res.status(401).json({ message: 'Usuário não encontrado' });
+      }
+      const autenticado = autenticarUsuario(senha, tutor);
+      if (autenticado) {
+        return res.status(200).json({ message: 'Usuário autenticado com sucesso' });
+      } else {
+        return res.status(401).json({ message: 'Senha incorreta' });
+      }
+    } catch (error) {
+      return res.status(500).json(error.message);
+    }
+  }
+
   static async getAllTutors(req, res) {
     try {
       const allTutors = await tutorServices.pegaTodosOsRegistros();

@@ -1,4 +1,5 @@
 'use strict';
+const criaHasheSalSenha = require('../utils/criaHashESalSenha')
 const {
   Model
 } = require('sequelize');
@@ -24,6 +25,14 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Tutor',
+    hooks:{
+      beforeCreate: async(tutor) => {
+        const { senha } = tutor;
+        const { salSenha, hashSenha } = criaHasheSalSenha(senha)
+        tutor.senha = hashSenha
+        tutor.salSenha = salSenha
+      }
+    }
   });
   return Tutor;
 };
