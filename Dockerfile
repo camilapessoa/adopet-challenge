@@ -1,7 +1,7 @@
 FROM node:18-slim as BUILDER
 LABEL maintainer="adopet-challenge"
 
-WORKDIR /usr/src/app
+WORKDIR /usr/src/index
 
 # Install app dependencies
 COPY package*.json ./
@@ -13,9 +13,9 @@ FROM node:18.15-alpine
 
 ARG NODE_ENV
 
-WORKDIR /usr/src/app
+WORKDIR /usr/src/index
 
-COPY --from=BUILDER /usr/src/app/ ./
+COPY --from=BUILDER /usr/src/index/ ./
 
 EXPOSE 3000
 

@@ -8,6 +8,8 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./:/usr/src/app
+    networks:
+      - adopet-challenge
     environment:
       - PORT=${PORT}
       - DATABASE_URL=postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}
@@ -22,8 +24,25 @@ services:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_DB: ${DB_NAME}
+    ports:
+      - ${DB_PORT}:${DB_PORT}
     volumes:
       - postgres-data:/var/lib/postgresql/data
+    networks:
+      - adopet-challenge
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    networks:
+      - adopet-challenge
+    restart: always
+    ports:
+      - 8000:8080
+
+networks:
+    adopet-challenge:
+      driver: bridge
 
 volumes:
   postgres-data:
