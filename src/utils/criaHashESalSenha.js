@@ -7,4 +7,4 @@ function criaHashESalSenha(senhaDigitada) {
   return { salSenha, hashSenha };
 }
 
-module.exports = criaHashESalSenha;
+module.exports = criaHashESalSenha
